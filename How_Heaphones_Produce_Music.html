@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How Headphones Produce Music For You</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: #2c3e50;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 40px;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+      }
+
+      section {
+        background-color: white;
+        padding: 25px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .transducer-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+      }
+
+      .animation-container {
+        width: 400px;
+        height: 300px;
+        position: relative;
+        margin: 20px 0;
+        border: 1px solid #ddd;
+        background-color: #f5f5f5;
+        border-radius: 5px;
+      }
+
+      .comparison {
+        margin-top: 40px;
+        background-color: #e8f4f8;
+        padding: 20px;
+        border-radius: 8px;
+      }
+
+      .comparison table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .comparison th,
+      .comparison td {
+        border: 1px solid #bbd8e8;
+        padding: 10px;
+        text-align: center;
+      }
+
+      .comparison th {
+        background-color: #3498db;
+        color: white;
+      }
+
+      .comparison tr:nth-child(even) {
+        background-color: #f2f9fc;
+      }
+
+      .sound-wave {
+        stroke-dasharray: 0;
+        animation: propagate 3s linear infinite;
+      }
+
+      @keyframes propagate {
+        to {
+          stroke-dasharray: 1000;
+          stroke-dashoffset: -1000;
+        }
+      }
+
+      .dynamic-vibration {
+        animation: vibrate 0.5s ease-in-out infinite;
+      }
+
+      @keyframes vibrate {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(5px);
+        }
+      }
+
+      .armature-vibration {
+        animation: rotate 0.5s ease-in-out infinite;
+        transform-origin: 100% 50%;
+      }
+
+      @keyframes rotate {
+        0%,
+        100% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(3deg);
+        }
+      }
+
+      .planar-vibration {
+        animation: planar-move 0.5s ease-in-out infinite;
+      }
+
+      @keyframes planar-move {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(3px);
+        }
+      }
+
+      .electrostatic-vibration {
+        animation: pulse 0.5s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scaleY(1);
+        }
+        50% {
+          transform: scaleY(1.05);
+        }
+      }
+
+      /* Controls */
+      .controls {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      button {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        margin: 0 5px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #2980b9;
+      }
+
+      .footnote {
+        font-size: 0.9em;
+        margin-top: 50px;
+        padding-top: 20px;
+        border-top: 1px solid #ddd;
+        text-align: center;
+        color: #7f8c8d;
+      }
+
+      .image-examples {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 30px 0;
+      }
+
+      .image-examples figure {
+        flex: 0 1 45%;
+        text-align: center;
+        margin: 0;
+      }
+
+      .example-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      figcaption {
+        margin-top: 10px;
+        color: #666;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>How Headphones Produce Music For You</h1>
+
+    <section id="intro">
+      <h2>Speakers in Headphones has Different Types</h2>
+      <p>
+        We all heard about speakers, but do you know that there are mainly four different type of them?
+        The more official term of speaker is <strong>Transducer</strong>, which means it convert <strong>electrical energy (music signal)</strong> into <strong>mechanical energy (sound
+        waves)</strong>. They're found in headphones, earbuds, speakers, and many other
+        audio devices.
+      </p>
+      <p>
+        Sound itself is a pressure wave that travels through air (or other
+        media). When an audio transducer vibrates, it pushes and pulls air
+        molecules, creating these pressure waves that our ears interpret as
+        sound. While they all serve the same purpose - to create sound -
+        modern speakers mainly use <strong>4</strong> different mechanisms.
+      </p>
+    </section>
+
+    <section id="dynamic">
+      <h2>Dynamic Drivers</h2>
+      <p>
+        Dynamic drivers (also called moving-coil drivers) are the most common
+        type found in everyday headphones and speakers. They use a simple
+        electromagnetic principle: when electricity flows through a coil within
+        a magnetic field, the coil moves.
+      </p>
+
+      <div class="transducer-container">
+        <div class="animation-container">
+          <svg width="400" height="300" viewBox="0 0 400 300">
+            <!-- Magnetic structure -->
+            <rect
+              x="100"
+              y="50"
+              width="200"
+              height="200"
+              fill="#dddddd"
+              stroke="#999999"
+            />
+
+            <!-- Magnet -->
+            <rect
+              x="155"
+              y="100"
+              width="90"
+              height="100"
+              fill="#758ecd"
+              stroke="#3a539b"
+            />
+            <text x="200" y="150" text-anchor="middle" fill="white">
+              Magnet
+            </text>
+
+            <!-- Voice coil -->
+            <rect
+              id="voice-coil"
+              x="145"
+              y="70"
+              width="110"
+              height="20"
+              fill="#cd7542"
+              stroke="#9c4e21"
+              class="dynamic-vibration"
+            />
+            <text
+              x="200"
+              y="85"
+              text-anchor="middle"
+              fill="white"
+              font-size="12"
+            >
+              Voice Coil
+            </text>
+
+            <!-- Cone -->
+            <path
+              id="cone"
+              d="M145,70 L75,20 L325,20 L255,70"
+              fill="#f4d03f"
+              stroke="#d4b130"
+              class="dynamic-vibration"
+            />
+            <text x="200" y="45" text-anchor="middle" fill="#333">
+              Cone/Diaphragm
+            </text>
+
+            <!-- Sound waves -->
+            <path
+              d="M50,20 C40,15 30,25 20,20"
+              stroke="#3498db"
+              fill="none"
+              stroke-width="2"
+              class="sound-wave"
+              transform="translate(0,0)"
+            />
+            <path
+              d="M50,20 C40,15 30,25 20,20"
+              stroke="#3498db"
+              fill="none"
+              stroke-width="2"
+              class="sound-wave"
+              transform="translate(0,-10)"
+              style="animation-delay: 0.2s"
+            />
+            <path
+              d="M50,20 C40,15 30,25 20,20"
+              stroke="#3498db"
+              fill="none"
+              stroke-width="2"
+              class="sound-wave"
+              transform="translate(0,-20)"
+              style="animation-delay: 0.4s"
+            />
+          </svg>
+        </div>
+        <div class="controls">
+          <button onclick="toggleAnimation('dynamic-vibration')">
+            Pause/Play Animation
+          </button>
+        </div>
+
+        <!-- Added image section -->
+        <div class="image-examples">
+          <figure>
+            <img src="Dynamic Driver.jpg" alt="Dynamic Driver Cross Section" class="example-image">
+            <figcaption>Cross-sectional view of a dynamic driver showing its internal components</figcaption>
+          </figure>
+          <figure>
+            <img src="apple_airpods-pro.jpg" alt="Apple AirPods Pro Components" class="example-image">
+            <figcaption>Apple AirPods Pro components showing the dynamic driver implementation</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <h3>How Dynamic Drivers Work:</h3>
+      <ol>
+        <li>
+          <strong>The voice coil</strong> sits in a magnetic field created by a
+          permanent magnet.
+        </li>
+        <li>
+          When audio current passes through the coil, it creates a temporary
+          magnetic field that interacts with the permanent magnet.
+        </li>
+        <li>This interaction causes the coil to move back and forth.</li>
+        <li>
+          The coil is attached to a cone (diaphragm) that pushes air, creating
+          sound waves.
+        </li>
+      </ol>
+
+      <p>
+        <strong>Pros:</strong> Simple design, good bass response,
+        cost-effective.
+      </p>
+      <p>
+        <strong>Cons:</strong> Can distort at high volumes, less detailed than
+        other technologies.
+      </p>
+    </section>
+
+    <section id="balanced-armature">
+      <h2>Balanced Armature Drivers</h2>
+      <p>
+        Balanced armature drivers are commonly found in in-ear monitors and
+        hearing aids. They use a tiny pivoting armature balanced between two
+        magnetic poles, connected to a diaphragm.
+      </p>
+
+      <div class="transducer-container">
+        <div class="animation-container">
+          <svg width="400" height="300" viewBox="0 0 400 300">
+            <!-- Housing -->
+            <rect
+              x="100"
+              y="100"
+              width="200"
+              height="100"
+              fill="#dddddd"
+              stroke="#999999"
+              rx="5"
+              ry="5"
+            />
+
+            <!-- Magnets -->
+            <rect
+              x="120"
+              y="110"
+              width="30"
+              height="80"
+              fill="#758ecd"
+              stroke="#3a539b"
+            />
+            <text
+              x="135"
+              y="150"
+              text-anchor="middle"
+              fill="white"
+              font-size="10"
+            >
+              N
+            </text>
+
+            <rect
+              x="250"
+              y="110"
+              width="30"
+              height="80"
+              fill="#758ecd"
+              stroke="#3a539b"
+            />
+            <text
+              x="265"
+              y="150"
+              text-anchor="middle"
+              fill="white"
+              font-size="10"
+            >
+              S
+            </text>
+
+            <!-- Armature -->
+            <rect
+              id="armature"
+              x="150"
+              y="145"
+              width="100"
+              height="10"
+              fill="#cd7542"
+              stroke="#9c4e21"
+              class="armature-vibration"
+            />
+            <text
+              x="200"
+              y="175"
+              text-anchor="middle"
+              fill="#333"
+              font-size="12"
+            >
+              Armature
+            </text>
+
+            <!-- Coil -->
+            <rect
+              x="170"
+              y="135"
+              width="60"
+              height="30"
+              fill="none"
+              stroke="#9c4e21"
+              stroke-width="1"
+              stroke-dasharray="2,2"
+            />
+            <text
+              x="200"
+              y="190"
+              text-anchor="middle"
+              fill="#333"
+              font-size="12"
+            >
+              Coil (around armature)
+            </text>
+
+            <!-- Diaphragm -->
+            <rect
+              x="250"
+              y="130"
+              width="60"
+              height="40"
+              fill="#f4d03f"
+              stroke="#d4b130"
+            />
+            <text
+              x="280"
+              y="210"
+              text-anchor="middle"
+              fill="#333"
+              font-size="12"
+            >
+              Diaphragm
+            </text>
+
+            <!-- Connection -->
+            <line
+              x1="250"
+              y1="150"
+              x2="280"
+              y2="150"
+              stroke="#333"
+              stroke-width="2"
+            />
+
+            <!-- Sound waves -->
+            <path
+              d="M330,150 C340,145 350,155 360,150"
+              stroke="#3498db"
+              fill="none"
+              stroke-width="2"
+              class="sound-wave"
+            />
+            <path
+              d="M330,150 C340,145 350,155 360,150"
+              stroke="#3498db"
+              fill="none"
+              stroke-width="2"
+              class="sound-wave"
+              transform="translate(10,0)"
+              style="animation-delay: 0.2s"
+            />
+            <path
+              d="M330,150 C340,145 350,155 360,150"
+              stroke="#3498db"
+              fill="none"
+              stroke-width="2"
+              class="sound-wave"
+              transform="translate(20,0)"
+              style="animation-delay: 0.4s"
+            />
+          </svg>
+        </div>
+        <div class="controls">
+          <button onclick="toggleAnimation('armature-vibration')">
+            Pause/Play Animation
+          </button>
+        </div>
+
+        <!-- Added image section -->
+        <div class="image-examples">
+          <figure>
+            <img src="balanced_armature.jpg" alt="Collection of Balanced Armature Drivers" class="example-image">
+            <figcaption>Various balanced armature drivers from different manufacturers showing different configurations (1-way to 3-way)</figcaption>
+          </figure>
+          <figure>
+            <img src="hearingaid_banner.jpg" alt="Hearing Aid with Balanced Armature" class="example-image">
+            <figcaption>A hearing aid implementation using balanced armature driver technology</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <h3>How Balanced Armature Drivers Work:</h3>
+      <ol>
+        <li>
+          A small metal armature is wrapped with a coil and placed between two
+          magnetic poles.
+        </li>
+        <li>
+          When audio current flows through the coil, it magnetizes the armature.
+        </li>
+        <li>
+          This causes the armature to pivot toward one magnetic pole or the
+          other.
+        </li>
+        <li>
+          The armature is connected to a diaphragm, which creates sound waves as
+          it moves.
+        </li>
+      </ol>
+
+      <p>
+        <strong>Pros:</strong> Compact size, excellent midrange and treble, low
+        power requirements.
+      </p>
+      <p>
+        <strong>Cons:</strong> Limited bass response, can sound less natural
+        than dynamic drivers.
+      </p>
+    </section>
+
+    <section id="planar-magnetic">
+      <h2>Planar Magnetic Drivers</h2>
+      <p>
+        Planar magnetic drivers (also called orthodynamic drivers) use a flat
+        diaphragm with embedded conductors placed between magnetic arrays.
+        They're found in high-end headphones.
+      </p>
+
+      <div class="transducer-container">
+        <div class="animation-container">
+          <svg width="400" height="300" viewBox="0 0 400 300">
+            <!-- Housing -->
+            <rect
+              x="50"
+              y="50"
+              width="300"
+              height="200"
+              fill="#dddddd"
+              stroke="#999999"
+            />
+
+            <!-- Magnet arrays -->
+            <rect
+              x="70"
+              y="70"
+              width="260"
+              height="30"
+              fill="#758ecd"
+              stroke="#3a539b"
+            />
+            <text x="200" y="90" text-anchor="middle" fill="white">
+              Magnet Array
+            </text>
+
+            <rect
+              x="70"
+              y="200"
+              width="260"
+              height="30"
+              fill="#758ecd"
+              stroke="#3a539b"
+            />
+            <text x="200" y="220" text-anchor="middle" fill="white">
+              Magnet Array
+            </text>
+
+            <!-- Diaphragm with conductors -->
+            <rect
+              id="planar-diaphragm"
+              x="70"
+              y="120"
+              width="260"
+              height="60"
+              fill="#f4d03f"
+              stroke="#d4b130"
+              class="planar-vibration"
+            />
+
+            <!-- Conductor pattern -->
+            <path
+              d="M80,130 H320 M80,140 H320 M80,150 H320 M80,160 H320 M80,170 H320"
+              stroke="#9c4e21"
+              stroke-width="2"
+              class="planar-vibration"
+            />
+
+            <text x="200" y="150" text-anchor="middle" fill="#333">
+              Diaphragm with Conductors
+            </text>
+
+            <!-- Sound waves -->
+            <path
+              d="M200,50 C190,40 210,30 200,20"
+              stroke="#3498db"
+              fill="none"
+              stroke-width="2"
+              class="sound-wave"
+            />
+            <path
+              d="M200,50 C190,40 210,30 200,20"
+              stroke="#3498db"
+              fill="none"
+              stroke-width="2"
+              class="sound-wave"
+              transform="translate(0,-10)"
+              style="animation-delay: 0.2s"
+            />
+            <path
+              d="M200,50 C190,40 210,30 200,20"
+              stroke="#3498db"
+              fill="none"
+              stroke-width="2"
+              class="sound-wave"
+              transform="translate(0,-20)"
+              style="animation-delay: 0.4s"
+            />
+          </svg>
+        </div>
+        <div class="controls">
+          <button onclick="toggleAnimation('planar-vibration')">
+            Pause/Play Animation
+          </button>
+        </div>
+        <div class="image-examples">
+          <figure>
+            <img src="planar maganetic.png.webp" alt="Collection of Balanced Armature Drivers" class="example-image">
+            <figcaption>Explosion graph for a planar maganetic driver</figcaption>
+          </figure>
+          <figure>
+            <img src="audeze-mm-100.jpg" alt="Hearing Aid with Balanced Armature" class="example-image">
+            <figcaption>A full picture of a planar maganetic headphone for studio use</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <h3>How Planar Magnetic Drivers Work:</h3>
+      <ol>
+        <li>
+          A thin, flat diaphragm has conductive traces or wires embedded within
+          it.
+        </li>
+        <li>This diaphragm is suspended between arrays of magnets.</li>
+        <li>
+          When audio current passes through the conductors, magnetic fields are
+          created.
+        </li>
+        <li>
+          These fields interact with the permanent magnets, causing the entire
+          diaphragm to move uniformly.
+        </li>
+        <li>This movement creates sound waves.</li>
+      </ol>
+
+      <p>
+        <strong>Pros:</strong> Low distortion, excellent transient response,
+        even sound distribution, good for mixing engineers
+      </p>
+      <p>
+        <strong>Cons:</strong> Typically require more power, larger size, often
+        more expensive.
+      </p>
+    </section>
+
+    <section id="electrostatic">
+      <h2>Electrostatic Drivers</h2>
+      <p>
+        Electrostatic drivers use an ultra-thin diaphragm suspended between two
+        charged plates (stators). They're found in high-end audiophile
+        headphones and speakers.
+      </p>
+
+      <div class="transducer-container">
+        <div class="animation-container">
+          <svg width="400" height="300" viewBox="0 0 400 300">
+            <!-- Housing -->
+            <rect
+              x="50"
+              y="50"
+              width="300"
+              height="200"
+              fill="#dddddd"
+              stroke="#999999"
+            />
+
+            <!-- Stator plates (perforated) -->
+            <g id="top-stator">
+              <rect
+                x="70"
+                y="70"
+                width="260"
+                height="20"
+                fill="#758ecd"
+                stroke="#3a539b"
+              />
+              <!-- Perforations -->
+              <circle cx="90" cy="80" r="5" fill="#dddddd" />
+              <circle cx="120" cy="80" r="5" fill="#dddddd" />
+              <circle cx="150" cy="80" r="5" fill="#dddddd" />
+              <circle cx="180" cy="80" r="5" fill="#dddddd" />
+              <circle cx="210" cy="80" r="5" fill="#dddddd" />
+              <circle cx="240" cy="80" r="5" fill="#dddddd" />
+              <circle cx="270" cy="80" r="5" fill="#dddddd" />
+              <circle cx="300" cy="80" r="5" fill="#dddddd" />
+            </g>
+            <text x="200" y="105" text-anchor="middle" fill="#333">
+              Stator (+ Charged)
+            </text>
+
+            <g id="bottom-stator">
+              <rect
+                x="70"
+                y="210"
+                width="260"
+                height="20"
+                fill="#758ecd"
+                stroke="#3a539b"
+              />
+              <!-- Perforations -->
+              <circle cx="90" cy="220" r="5" fill="#dddddd" />
+              <circle cx="120" cy="220" r="5" fill="#dddddd" />
+              <circle cx="150" cy="220" r="5" fill="#dddddd" />
+              <circle cx="180" cy="220" r="5" fill="#dddddd" />
+              <circle cx="210" cy="220" r="5" fill="#dddddd" />
+              <circle cx="240" cy="220" r="5" fill="#dddddd" />
+              <circle cx="270" cy="220" r="5" fill="#dddddd" />
+              <circle cx="300" cy="220" r="5" fill="#dddddd" />
+            </g>
+            <text x="200" y="245" text-anchor="middle" fill="#333">
+              Stator (- Charged)
+            </text>
+
+            <!-- Diaphragm -->
+            <rect
+              id="electrostatic-diaphragm"
+              x="70"
+              y="140"
+              width="260"
+              height="20"
+              fill="#f4d03f"
+              stroke="#d4b130"
+              class="electrostatic-vibration"
+            />
+            <text
+              x="200"
+              y="150"
+              text-anchor="middle"
+              fill="#333"
+              font-size="12"
+            >
+              Diaphragm (Charged)
+            </text>
+
+            <!-- Sound waves (coming from both sides) -->
+            <path
+              d="M200,50 C190,40 210,30 200,20"
+              stroke="#3498db"
+              fill="none"
+              stroke-width="2"
+              class="sound-wave"
+            />
+            <path
+              d="M200,50 C190,40 210,30 200,20"
+              stroke="#3498db"
+              fill="none"
+              stroke-width="2"
+              class="sound-wave"
+              transform="translate(0,-10)"
+              style="animation-delay: 0.2s"
+            />
+
+            <path
+              d="M200,250 C190,260 210,270 200,280"
+              stroke="#3498db"
+              fill="none"
+              stroke-width="2"
+              class="sound-wave"
+            />
+            <path
+              d="M200,250 C190,260 210,270 200,280"
+              stroke="#3498db"
+              fill="none"
+              stroke-width="2"
+              class="sound-wave"
+              transform="translate(0,10)"
+              style="animation-delay: 0.2s"
+            />
+          </svg>
+        </div>
+        <div class="controls">
+          <button onclick="toggleAnimation('electrostatic-vibration')">
+            Pause/Play Animation
+          </button>
+        </div>
+        <div class="image-examples">
+          <figure>
+            <img src="electrostatic-speakers.jpg" alt="Collection of Balanced Armature Drivers" class="example-image">
+            <figcaption>Electrostatic speakers are often very tall, with the large mambrance producing enough loudness</figcaption>
+          </figure>
+          <figure>
+            <img src="electrostatic.png.webp" alt="Hearing Aid with Balanced Armature" class="example-image">
+            <figcaption>Electrostatic headphones are similar to planar ones except for even thinner mambrance</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <h3>How Electrostatic Drivers Work:</h3>
+      <ol>
+        <li>
+          An incredibly thin diaphragm (usually a few microns thick) is given a
+          fixed electrical charge.
+        </li>
+        <li>
+          This diaphragm is suspended between two perforated metal plates
+          (stators).
+        </li>
+        <li>
+          When audio signal is applied to the stators, it creates varying
+          electrical fields.
+        </li>
+        <li>
+          The charged diaphragm is attracted to one stator and repelled by the
+          other, causing it to move.
+        </li>
+        <li>
+          This movement creates sound waves that pass through the perforations
+          in the stators.
+        </li>
+      </ol>
+
+      <p>
+        <strong>Pros:</strong> Extremely low distortion, exceptional clarity and
+        detail, excellent transient response.
+      </p>
+      <p>
+        <strong>Cons:</strong> Require special amplifiers, limited bass,
+        expensive, larger size.
+      </p>
+    </section>
+
+    <section class="comparison">
+      <h2>Comparison of Audio Transducer Types</h2>
+      <table>
+        <tr>
+          <th>Type</th>
+          <th>Size</th>
+          <th>Sound Quality</th>
+          <th>Power Requirements</th>
+          <th>Producing Cost and Difficulty</th>
+          <th>Common Uses</th>
+        </tr>
+        <tr>
+          <td>Dynamic</td>
+          <td>Small to Large</td>
+          <td>Good, especially for bass</td>
+          <td>Low to Medium</td>
+          <td>Low to Medium</td>
+          <td>Consumer headphones, speakers</td>
+        </tr>
+        <tr>
+          <td>Balanced Armature</td>
+          <td>Very Small</td>
+          <td>Excellent for mids/highs</td>
+          <td>Very Low</td>
+          <td>Medium to High</td>
+          <td>In-ear monitors, hearing aids</td>
+        </tr>
+        <tr>
+          <td>Planar Magnetic</td>
+          <td>Medium to Large</td>
+          <td>Excellent overall</td>
+          <td>High</td>
+          <td>High</td>
+          <td>Audiophile headphones</td>
+        </tr>
+        <tr>
+          <td>Electrostatic</td>
+          <td>Medium to Large</td>
+          <td>Superior detail/clarity</td>
+          <td>Very High (special amp)</td>
+          <td>Very High</td>
+          <td>High-end audiophile gear</td>
+        </tr>
+      </table>
+    </section>
+
+    <div class="footnote">
+      <p>
+        Created for educational purposes. Animations are simplified
+        representations of the actual physical processes.
+      </p>
+    </div>
+
+    <script>
+      function toggleAnimation(className) {
+        const elements = document.getElementsByClassName(className);
+        for (let i = 0; i < elements.length; i++) {
+          if (elements[i].style.animationPlayState === "paused") {
+            elements[i].style.animationPlayState = "running";
+          } else {
+            elements[i].style.animationPlayState = "paused";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
